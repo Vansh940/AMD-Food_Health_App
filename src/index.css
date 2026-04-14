@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #09090b 100%);
+  color: #94a3b8; /* slate-400 */
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-slate-900/30 backdrop-blur-2xl border border-slate-700/50 rounded-2xl md:rounded-3xl transition-all duration-300 relative overflow-hidden;
+    box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  }
+  
+  .glass-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  }
+  
+  .glass-panel:hover {
+    @apply bg-slate-800/40 border-slate-600/50;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .input-field {
+    @apply w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 outline-none transition-all duration-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500;
+  }
+
+  .btn-primary {
+    @apply relative bg-indigo-600 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 overflow-hidden hover:bg-indigo-500 hover:shadow-[0_0_20px_rgba(79,70,229,0.3)] active:scale-95 disabled:opacity-50;
+  }
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: 'Manrope', 'Inter', sans-serif;
+}
